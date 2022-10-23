@@ -1,0 +1,8 @@
+newmtl Checkpoint_Body
+Kd 0.5719116 0.6226344 0.6415094
+d 1
+
+newmtl Checkpoint_Glow
+Kd 0 0.255435 1
+d 1
+
