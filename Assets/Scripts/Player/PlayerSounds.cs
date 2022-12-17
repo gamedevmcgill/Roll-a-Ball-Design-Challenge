@@ -24,11 +24,15 @@ public class PlayerSounds : MonoBehaviour
     new Rigidbody rigidbody;
 
     // Start is called before the first frame update
-    void Start()
+    void OnEnable()
     {
         PlayerController.ScoreUpdated += OnScoreUpdated;
 
         rigidbody = gameObject.GetComponent<Rigidbody>();
+    }
+
+    void OnDisable() {
+        PlayerController.ScoreUpdated -= OnScoreUpdated;
     }
 
     // Update is called once per frame
@@ -46,6 +50,7 @@ public class PlayerSounds : MonoBehaviour
                 chimePitch = 0.9f;
             }
             chimeTime = Time.time;
+            Debug.Log(chime);
             chime.pitch += 0.05f * points;
             chime.Play();
             if (chimePitch > 2) chimePitch = 2;
