@@ -75,9 +75,6 @@ public class LevelGoal : MonoBehaviour
     private void OnValidate() 
     {
         if (scoreThreshold < 1) scoreThreshold = 1;   
-        #if UNITY_EDITOR
-        sceneName = targetScene.name;
-        #endif
     }
 
 
@@ -102,6 +99,8 @@ public class LevelGoal : MonoBehaviour
             DrawDefaultInspector();
 
             LevelGoal levelGoal = (LevelGoal) target;
+            if (levelGoal.targetScene) levelGoal.sceneName = levelGoal.targetScene.name;
+            else levelGoal.sceneName = null;
 
             levelGoal.requireScore = EditorGUILayout.Toggle(requireScoreContent, levelGoal.requireScore);
 
