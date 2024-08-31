@@ -24,14 +24,31 @@ public class LevelGoal : MonoBehaviour
     [SerializeField, HideInInspector] bool requireScore;
     // How many points the player must have to proceed to the next level.
     [SerializeField, HideInInspector] int scoreThreshold;
-    bool active = true;
+    bool active = true; // Whether or not you have the points required to move on to the next level 
 
     static Color activeColor = new Color(0f, 1f, 0.3471055f, 1f);
     static Color inactiveColor = new Color (1f, 0.312f, 0.404f, 1f);
 
     Material goalMaterial;
     new Light light;
-    
+
+    // --------------------------------------------------------------------------------------------------------
+    //      Implement Step 4. of the Design Pathway Document Below
+    //      Note: Make sure to check that you have the points needed to move on to the next level and that the collision was, in fact, with the player before moving to the next scene
+
+
+
+
+
+
+
+
+
+    //      Implement your function above
+    // --------------------------------------------------------------------------------------------------------  
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,14 +78,6 @@ public class LevelGoal : MonoBehaviour
             active = true;
             goalMaterial.color = activeColor;
             light.color = activeColor;
-        }
-    }
-
-    void OnTriggerEnter(Collider other) 
-    {
-        if (active)
-        {
-            if (other.gameObject == PlayerController.player) SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }
     }
 
